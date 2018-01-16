@@ -15,11 +15,11 @@
 #
 #   This program is distributed in the hope that it will be useful,
 #   but WITHOUT ANY WARRANTY; without even the implied warranty of
-#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 #
 #-------------------------------------------------------------------------------
 #
-#   SHEBA requires a FORTRAN 90 compiler. Compilers known to work are:    
+#   SHEBA requires a FORTRAN 90 compiler. Compilers known to work are:
 #      Linux : ifc/ifort, g95, gfortran
 #      Mac (PowerPC) : g95, gfortran, XLF
 #      Mac (i386) : gfortran, ifort (maybe)
@@ -32,22 +32,22 @@
 #===============================================================================
 
 # Delivery path
-MACRODIR=/usr/local/sac/macros
-EXECDIR=/usr/local/sac/macros
+MACRODIR=/Users/ja17375/Scripts/sac/macros
+EXECDIR=/Users/ja17375/Scripts/sac/execs
 
 #===============================================================================
 # Compiler and options:
 #===============================================================================
 
 ## -- flags which work for gfortran on Mac (and probably Linux)
-FC = gfortran 
+FC = gfortran
 # Production
 FFLAGS = -O2
 # Debug
 # FFLAGS = -fcheck=bounds -C -g
-# additional flags for .f/.F files 
+# additional flags for .f/.F files
 F77FLAGS = -w
-# additional flags for .f90/.F90 files 
+# additional flags for .f90/.F90 files
 F90FLAGS =
 
 #===============================================================================
@@ -55,20 +55,20 @@ F90FLAGS =
 #===============================================================================
 
 ## Uncomment for sac/sac2000 (binaries sac files are native endian)
-#F90SAC_FLAGS = 
+#F90SAC_FLAGS =
 
 ## Uncomment for MacSAC (binary sac files are always big-endian)
-F90SAC_FLAGS = -DFORCE_BIGENDIAN_SACFILES 
+F90SAC_FLAGS = -DFORCE_BIGENDIAN_SACFILES
 
 #===============================================================================
 # GMT Compatibility options
 #===============================================================================
 
 ## gmt prefix (required by some gmt installations)
-GMT_PREFIX = gmt4 
+GMT_PREFIX = gmt4
 
 ## For traditional gmt installations
-#GMT_PREFIX = 
+#GMT_PREFIX =
 
 #===============================================================================
 #===============================================================================
@@ -84,11 +84,11 @@ SUBROUTINES = sheba_core.o misc.o input.o desplit.o output.o teanby.o \
                   traceops.o particle.o ndf.o\
                   calcsnr.o reorient.o crosscorr.o
 
-F90SAC = f90sac_distrib.o 
+F90SAC = f90sac_distrib.o
 #
 #	Executable info
 #
-# 
+#
 #
 
 all:$(EXECDIR)/sheba_exec \
@@ -100,7 +100,7 @@ all:$(EXECDIR)/sheba_exec \
       $(MACRODIR)/sheba\
       $(EXECDIR)/sheba_stack\
 		$(EXECDIR)/stack_wgtcalc
-      
+
 #
 #     SHEBA EXECUTABLE
 #
@@ -110,12 +110,12 @@ $(EXECDIR)/sheba_exec:${F90SAC} ${MODULES} sheba_main.o ${SUBROUTINES}
 $(EXECDIR)/sheba_stack:${F90SAC} ${MODULES} sheba_stack.o ${SUBROUTINES}
 	$(FC) $(FFLAGS) -o $(EXECDIR)/sheba_stack ${F90SAC} ${MODULES} sheba_stack.o ${SUBROUTINES}
 
-$(EXECDIR)/stack_wgtcalc:stack_wgtcalc.o 
+$(EXECDIR)/stack_wgtcalc:stack_wgtcalc.o
 	$(FC) $(FFLAGS) -o $(EXECDIR)/stack_wgtcalc stack_wgtcalc.o
 
 #	F90SAC requires special options to compile ...
 f90sac_distrib.o: f90sac_distrib.F90
-	$(FC) $(FFLAGS) $(F90FLAGS) $(F90SAC_FLAGS) -c $*.F90 
+	$(FC) $(FFLAGS) $(F90FLAGS) $(F90SAC_FLAGS) -c $*.F90
 
 #
 #     GMT PLOTTING SCRIPTS + OTHER SHELL SCRIPTS
@@ -152,22 +152,22 @@ distrib:
 	cp -f sheba ../SHEBA_distrib
 	cp -f Makefile ../SHEBA_distrib
 	cp -f INSTALL ../SHEBA_distrib
-	cp -f cleansheba ../SHEBA_distrib	
+	cp -f cleansheba ../SHEBA_distrib
 
 clean:
 	rm -f *.o *.mod
 
-# 
+#
 # 	Compile Instuctions
 #
 %.o: %.F90
-	$(FC) $(FFLAGS) $(F90FLAGS) -c $*.F90 
+	$(FC) $(FFLAGS) $(F90FLAGS) -c $*.F90
 %.o: %.f90
-	$(FC) $(FFLAGS) $(F90FLAGS) -c $*.f90 
+	$(FC) $(FFLAGS) $(F90FLAGS) -c $*.f90
 %.o: %.f
 	$(FC) $(FFLAGS) $(F77FLAGS) -c $*.f
 
 #
 #	Dependencies
 #
-$(SUBROUTINES)    :	$(MODULES)		
+$(SUBROUTINES)    :	$(MODULES)
