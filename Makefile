@@ -32,8 +32,8 @@
 #===============================================================================
 
 # Delivery path
-MACRODIR=/Users/ja17375/Scripts/sac/macros
-EXECDIR=/Users/ja17375/Scripts/sac/execs
+MACRODIR=/Users/ja17375/Ext_programs/macros
+EXECDIR=/Users/ja17375/Ext_programs/bin
 
 #===============================================================================
 # Compiler and options:
@@ -65,10 +65,10 @@ F90SAC_FLAGS = -DFORCE_BIGENDIAN_SACFILES
 #===============================================================================
 
 ## gmt prefix (required by some gmt installations)
-GMT_PREFIX = gmt4
+#GMT_PREFIX = gmt
 
 ## For traditional gmt installations
-#GMT_PREFIX =
+GMT_PREFIX =
 
 #===============================================================================
 #===============================================================================
