@@ -81,10 +81,10 @@
 		dtlag = idtlag * dtlag_step
 		dfast = real(idfast) 
 
-      print*,'Minimum at:'
+      print*,'Minimum lambda 2',lam2min,' at:'
       print*,'   FAST',fast,' +/- ',dfast
       print*,'   TLAG',tlag,' +/- ',dtlag
-      
+	  
 !  ** output results to read in MATLAB
 
       open(31,file='sheba_stack.err')
