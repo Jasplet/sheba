@@ -96,8 +96,8 @@
 		enddo
 		close(31)
 
-      write(32,'(a)') '% FAST DFAST TLAG DTLAG, NSTACKED, TLAG_STEP'
-      write(32,'(4f12.4,i5,f12.4)') fast,dfast,tlag,dtlag,nsurf,dtlag_step
+      write(32,'(a)') 'FAST DFAST TLAG DTLAG NSTACKED TLAG_STEP LAM2'
+      write(32,'(4f8.4,i5,2f8.4)') fast,dfast,tlag,dtlag,nsurf,dtlag_step,lam2min
      
       stop
    end program sheba_stack
