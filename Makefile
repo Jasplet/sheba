@@ -82,7 +82,7 @@ MODULES = sheba_config.o array_sizes.o event_info.o
 SUBROUTINES = sheba_core.o misc.o input.o desplit.o output.o teanby.o \
                   rumpker.o cluster.o split.o\
                   traceops.o particle.o ndf.o\
-                  calcsnr.o reorient.o crosscorr.o
+                  calcsnr.o reorient.o crosscorr.o split_intensity.o
 
 F90SAC = f90sac_distrib.o
 #
