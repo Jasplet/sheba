@@ -30,7 +30,7 @@
 
       write(99,'(3a)') '%  DATE TIME    EVLA    EVLO    STLA    STLO', &
       '    EVDP    DIST     AZI     BAZ    FAST   DFAST    TLAG   ', &
-       'DTLAG    SPOL   DSPOL    WBEG    WEND  STAT'
+       'DTLAG    SPOL   DSPOL        WBEG        WEND  STAT'
       write(99,100) t1 % nzyear,t1 % nzjday,  &
                     t1 % nzhour, t1 % nzmin, &
                     t1 % evla, t1 % evlo, &
@@ -51,7 +51,7 @@
       
       write(99,'(3a)') '%  DATE TIME    EVLA    EVLO    STLA    STLO', &
       '    EVDP    DIST     AZI     BAZ    FAST   DFAST    TLAG   ', &
-       'DTLAG    SPOL   DSPOL    WBEG    WEND  STAT'
+       'DTLAG    SPOL   DSPOL        WBEG        WEND  STAT'
       write(99,100) t1 % nzyear,t1 % nzjday,  &
                     t1 % nzhour, t1 % nzmin, &
                     t1 % evla, t1 % evlo, &
@@ -72,7 +72,7 @@
       
       write(99,'(3a)') '%  DATE TIME    EVLA    EVLO    STLA    STLO', &
       '    EVDP    DIST     AZI     BAZ    FAST   DFAST    TLAG   ', &
-       'DTLAG    SPOL   DSPOL    WBEG    WEND  STAT'
+       'DTLAG    SPOL   DSPOL        WBEG        WEND  STAT'
       write(99,100) t1 % nzyear,t1 % nzjday,  &
                     t1 % nzhour, t1 % nzmin, &
                     t1 % evla, t1 % evlo, &
@@ -145,8 +145,8 @@
 
       close(99)
 
-      return           
-100   format(i4.4,i3.3,1x,2i2.2,10f8.2,2f8.5,2f8.2,2f8.5,'  % ',a)      
+      return            
+100   format(i4.4,i3.3,1x,2i2.2,10f8.2,2f8.5,2f8.2,2f12.5,'  % ',a)      
 101   format(i4.4,i3.3,1x,2i2.2,2f8.5,f7.3,f8.3,x,i5,&
       x,f8.4,x,f8.4,'  % ',a)      
       end subroutine output_result
